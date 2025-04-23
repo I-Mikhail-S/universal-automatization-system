@@ -11,6 +11,7 @@ import io.jmix.core.metamodel.annotation.JmixEntity;
 import io.jmix.core.metamodel.annotation.NumberFormat;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.PositiveOrZero;
 import org.springframework.data.annotation.CreatedBy;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedBy;
@@ -42,10 +43,11 @@ public class Product {
     @Lob
     private String description;
 
+    @PositiveOrZero
+    @NotNull
     @NumberFormat(pattern = "#,##0.00")
     @Column(name = "PRICE", nullable = false)
-    @NotNull
-    private Integer price;
+    private Double price;
 
     @Column(name = "DATE_OF_DELIVERY", nullable = false)
     @NotNull
@@ -91,6 +93,14 @@ public class Product {
     @Column(name = "DELETED_DATE")
     private OffsetDateTime deletedDate;
 
+    public void setPrice(Double price) {
+        this.price = price;
+    }
+
+    public Double getPrice() {
+        return price;
+    }
+
     public Order getOrder() {
         return order;
     }
@@ -113,14 +123,6 @@ public class Product {
 
     public void setDateOfDelivery(OffsetDateTime dateOfDelivery) {
         this.dateOfDelivery = dateOfDelivery;
-    }
-
-    public Integer getPrice() {
-        return price;
-    }
-
-    public void setPrice(Integer price) {
-        this.price = price;
     }
 
     public String getDescription() {

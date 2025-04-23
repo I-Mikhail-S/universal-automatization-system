@@ -5,7 +5,9 @@
     <data>
         <instance id="departmentDc"
                   class="com.company.universalautomationsystem.entity.Department">
-            <fetchPlan extends="_base"/>
+            <fetchPlan extends="_base">
+                <property name="stuff" fetchPlan="_base"/>
+            </fetchPlan>
             <loader id="departmentDl"/>
         </instance>
     </data>
@@ -20,6 +22,12 @@
         <formLayout id="form" dataContainer="departmentDc">
             <textField id="nameField" property="name"/>
             <textField id="addressField" property="address"/>
+            <entityPicker id="stuffField" property="stuff">
+                <actions>
+                    <action id="entityLookup" type="entity_lookup"/>
+                    <action id="entityClear" type="entity_clear"/>
+                </actions>
+            </entityPicker>
         </formLayout>
         <hbox id="detailActions">
             <button id="saveAndCloseBtn" action="saveAction"/>

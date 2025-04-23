@@ -12,6 +12,7 @@ import io.jmix.core.metamodel.annotation.NumberFormat;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.PositiveOrZero;
 import org.springframework.data.annotation.CreatedBy;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedBy;
@@ -71,15 +72,26 @@ public class Employee {
     @OneToOne(fetch = FetchType.LAZY, optional = false)
     private Post post;
 
+    @PositiveOrZero
+    @NotNull
     @NumberFormat(pattern = "#,##0.00")
     @Column(name = "SALARY", nullable = false)
-    @NotNull
-    private Integer salary;
+    private Double salary;
+
+    @OnDeleteInverse(DeletePolicy.UNLINK)
+    @OnDelete(DeletePolicy.UNLINK)
+    @JoinColumn(name = "STUFF_ID")
+    @ManyToOne(fetch = FetchType.LAZY)
+    private Stuff stuff;
 
     @Column(name = "IN_STAFF", nullable = false)
     @NotNull
     private Boolean inStaff = false;
 
+    @OnDeleteInverse(DeletePolicy.UNLINK)
+    @OnDelete(DeletePolicy.UNLINK)
+    @OneToOne(fetch = FetchType.LAZY, mappedBy = "employee")
+    private Order order;
 
     @Column(name = "VERSION", nullable = false)
     @Version
@@ -108,15 +120,14 @@ public class Employee {
     @DeletedDate
     @Column(name = "DELETED_DATE")
     private OffsetDateTime deletedDate;
-    @OnDeleteInverse(DeletePolicy.UNLINK)
-    @OnDelete(DeletePolicy.UNLINK)
-    @JoinColumn(name = "STUFF_ID")
-    @ManyToOne(fetch = FetchType.LAZY)
-    private Stuff stuff;
-    @OnDeleteInverse(DeletePolicy.UNLINK)
-    @OnDelete(DeletePolicy.UNLINK)
-    @OneToOne(fetch = FetchType.LAZY, mappedBy = "employee")
-    private Order order;
+
+    public void setSalary(Double salary) {
+        this.salary = salary;
+    }
+
+    public Double getSalary() {
+        return salary;
+    }
 
     public Order getOrder() {
         return order;
@@ -148,14 +159,6 @@ public class Employee {
 
     public void setInStaff(Boolean inStaff) {
         this.inStaff = inStaff;
-    }
-
-    public Integer getSalary() {
-        return salary;
-    }
-
-    public void setSalary(Integer salary) {
-        this.salary = salary;
     }
 
     public String getInn() {

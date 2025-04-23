@@ -10,6 +10,7 @@
                 <property name="warehouse">
                     <property name="name"/>
                 </property>
+                <property name="order" fetchPlan="_base"/>
             </fetchPlan>
             <loader id="productsDl" readOnly="true">
                 <query>
@@ -56,6 +57,7 @@
                 <column property="price"/>
                 <column property="dateOfDelivery"/>
                 <column property="warehouse"/>
+                <column property="order"/>
             </columns>
         </dataGrid>
         <hbox id="lookupActions" visible="false">

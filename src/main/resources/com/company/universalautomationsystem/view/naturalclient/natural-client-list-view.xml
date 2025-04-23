@@ -1,18 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <view xmlns="http://jmix.io/schema/flowui/view"
       xmlns:c="http://jmix.io/schema/flowui/jpql-condition"
-      title="msg://employeeListView.title"
-      focusComponent="employeesDataGrid">
+      title="msg://naturalClientListView.title"
+      focusComponent="naturalClientsDataGrid">
     <data>
-        <collection id="employeesDc"
-                    class="com.company.universalautomationsystem.entity.Employee">
-            <fetchPlan extends="_base">
-                <property name="post" fetchPlan="_instance_name"/>
-                <property name="stuff" fetchPlan="_instance_name"/>
-            </fetchPlan>
-            <loader id="employeesDl" readOnly="true">
+        <collection id="naturalClientsDc"
+                    class="com.company.universalautomationsystem.entity.NaturalClient">
+            <fetchPlan extends="_base"/>
+            <loader id="naturalClientsDl" readOnly="true">
                 <query>
-                    <![CDATA[select e from Employee e]]>
+                    <![CDATA[select e from NaturalClient e]]>
                 </query>
             </loader>
         </collection>
@@ -30,19 +27,19 @@
     </actions>
     <layout>
         <genericFilter id="genericFilter"
-                       dataLoader="employeesDl">
+                       dataLoader="naturalClientsDl">
             <properties include=".*"/>
         </genericFilter>
         <hbox id="buttonsPanel" classNames="buttons-panel">
-            <button id="createBtn" action="employeesDataGrid.create"/>
-            <button id="editBtn" action="employeesDataGrid.edit"/>
-            <button id="removeBtn" action="employeesDataGrid.remove"/>
-            <simplePagination id="pagination" dataLoader="employeesDl"/>
+            <button id="createBtn" action="naturalClientsDataGrid.create"/>
+            <button id="editBtn" action="naturalClientsDataGrid.edit"/>
+            <button id="removeBtn" action="naturalClientsDataGrid.remove"/>
+            <simplePagination id="pagination" dataLoader="naturalClientsDl"/>
         </hbox>
-        <dataGrid id="employeesDataGrid"
+        <dataGrid id="naturalClientsDataGrid"
                   width="100%"
                   minHeight="20em"
-                  dataContainer="employeesDc"
+                  dataContainer="naturalClientsDc"
                   columnReorderingAllowed="true">
             <actions>
                 <action id="create" type="list_create"/>
@@ -53,13 +50,8 @@
                 <column property="name"/>
                 <column property="email"/>
                 <column property="phone"/>
+                <column property="bankRequisites"/>
                 <column property="dateOfBirth"/>
-                <column property="passport"/>
-                <column property="inn"/>
-                <column property="post"/>
-                <column property="salary"/>
-                <column property="inStaff"/>
-                <column property="stuff"/>
             </columns>
         </dataGrid>
         <hbox id="lookupActions" visible="false">

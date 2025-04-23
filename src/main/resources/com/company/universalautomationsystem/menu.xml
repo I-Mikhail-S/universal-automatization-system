@@ -3,17 +3,31 @@
 
     <menu id="application" title="msg://com.company.universalautomationsystem/menu.application.title" opened="true">
         <item view="User.list" title="msg://com.company.universalautomationsystem.view.user/UserListView.title"/>
+    </menu>
+    <menu id="client" title="Client" opened="true">
+        <item view="LegalClient.list"
+              title="msg://com.company.universalautomationsystem.view.legalclient/legalClientListView.title"/>
+        <item view="NaturalClient.list"
+              title="msg://com.company.universalautomationsystem.view.naturalclient/naturalClientListView.title"/>
+    </menu>
+    <menu id="employee" title="Employee" opened="true">
         <item view="Post.list" title="msg://com.company.universalautomationsystem.view.post/postListView.title"/>
         <item view="Employee.list"
               title="msg://com.company.universalautomationsystem.view.employee/employeeListView.title"/>
+    </menu>
+    <menu id="organization" title="Organization" opened="true">
         <item view="Stuff.list" title="msg://com.company.universalautomationsystem.view.stuff/stuffListView.title"/>
         <item view="Department.list"
               title="msg://com.company.universalautomationsystem.view.department/departmentListView.title"/>
         <item view="Warehouse.list"
               title="msg://com.company.universalautomationsystem.view.warehouse/warehouseListView.title"/>
+    </menu>
+    <menu id="order" title="Order" opened="true">
         <item view="Product.list"
               title="msg://com.company.universalautomationsystem.view.product/productListView.title"/>
         <item view="Order_.list" title="msg://com.company.universalautomationsystem.view.order/orderListView.title"/>
+    </menu>
+    <menu id="executor" title="Executor" opened="true">
         <item view="Executor.list"
               title="msg://com.company.universalautomationsystem.view.executor/executorListView.title"/>
     </menu>

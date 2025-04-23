@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd"
+        objectQuotingStrategy="QUOTE_ONLY_RESERVED_WORDS">
+    <changeSet id="1" author="universal-automation-system">
+        <dropColumn columnName="MIN_SALARY" tableName="POST"/>
+    </changeSet>
+    <changeSet id="2" author="universal-automation-system">
+        <addColumn tableName="POST">
+            <column name="MIN_SALARY" type="DOUBLE">
+                <constraints nullable="false" validateNullable="true"/>
+            </column>
+        </addColumn>
+    </changeSet>
+    <changeSet id="3" author="universal-automation-system">
+        <dropColumn columnName="PRICE" tableName="PRODUCT"/>
+    </changeSet>
+    <changeSet id="4" author="universal-automation-system">
+        <addColumn tableName="PRODUCT">
+            <column name="PRICE" type="DOUBLE">
+                <constraints nullable="false" validateNullable="true"/>
+            </column>
+        </addColumn>
+    </changeSet>
+    <changeSet id="5" author="universal-automation-system">
+        <dropColumn columnName="SALARY" tableName="EMPLOYEE"/>
+    </changeSet>
+    <changeSet id="6" author="universal-automation-system">
+        <addColumn tableName="EMPLOYEE">
+            <column name="SALARY" type="DOUBLE">
+                <constraints nullable="false" validateNullable="true"/>
+            </column>
+        </addColumn>
+    </changeSet>
+</databaseChangeLog>

@@ -47,6 +47,12 @@ public class Warehouse {
     @OneToMany(mappedBy = "warehouse")
     private List<Product> product;
 
+    @OnDeleteInverse(DeletePolicy.UNLINK)
+    @OnDelete(DeletePolicy.UNLINK)
+    @JoinColumn(name = "DEPARTMENT_ID")
+    @ManyToOne(fetch = FetchType.LAZY)
+    private Department department;
+
     @Column(name = "VERSION", nullable = false)
     @Version
     private Integer version;
@@ -74,12 +80,6 @@ public class Warehouse {
     @DeletedDate
     @Column(name = "DELETED_DATE")
     private OffsetDateTime deletedDate;
-
-    @OnDeleteInverse(DeletePolicy.UNLINK)
-    @OnDelete(DeletePolicy.UNLINK)
-    @JoinColumn(name = "DEPARTMENT_ID")
-    @ManyToOne(fetch = FetchType.LAZY)
-    private Department department;
 
     public List<Product> getProduct() {
         return product;

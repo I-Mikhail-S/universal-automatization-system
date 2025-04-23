@@ -41,6 +41,11 @@ public class Stuff {
     @OneToMany(mappedBy = "stuff")
     private List<Employee> employee;
 
+    @OnDeleteInverse(DeletePolicy.UNLINK)
+    @OnDelete(DeletePolicy.UNLINK)
+    @OneToOne(fetch = FetchType.LAZY, mappedBy = "stuff")
+    private Department department;
+
     @Column(name = "VERSION", nullable = false)
     @Version
     private Integer version;
@@ -68,10 +73,6 @@ public class Stuff {
     @DeletedDate
     @Column(name = "DELETED_DATE")
     private OffsetDateTime deletedDate;
-    @OnDeleteInverse(DeletePolicy.UNLINK)
-    @OnDelete(DeletePolicy.UNLINK)
-    @OneToOne(fetch = FetchType.LAZY, mappedBy = "stuff")
-    private Department department;
 
     public Department getDepartment() {
         return department;

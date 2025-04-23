@@ -5,7 +5,10 @@
     <data>
         <instance id="employeeDc"
                   class="com.company.universalautomationsystem.entity.Employee">
-            <fetchPlan extends="_base"/>
+            <fetchPlan extends="_base">
+                <property name="post"/>
+                <property name="stuff" fetchPlan="_base"/>
+            </fetchPlan>
             <loader id="employeeDl"/>
         </instance>
     </data>
@@ -26,6 +29,18 @@
             <textField id="innField" property="inn"/>
             <textField id="salaryField" property="salary"/>
             <checkbox id="inStaffField" property="inStaff"/>
+            <entityPicker id="postField" property="post">
+                <actions>
+                    <action id="entityLookup" type="entity_lookup"/>
+                    <action id="entityClear" type="entity_clear"/>
+                </actions>
+            </entityPicker>
+            <entityPicker id="stuffField" property="stuff">
+                <actions>
+                    <action id="entityLookup" type="entity_lookup"/>
+                    <action id="entityClear" type="entity_clear"/>
+                </actions>
+            </entityPicker>
         </formLayout>
         <hbox id="detailActions">
             <button id="saveAndCloseBtn" action="saveAction"/>

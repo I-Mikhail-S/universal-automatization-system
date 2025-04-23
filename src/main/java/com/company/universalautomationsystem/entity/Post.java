@@ -6,6 +6,7 @@ import io.jmix.core.metamodel.annotation.JmixEntity;
 import io.jmix.core.metamodel.annotation.NumberFormat;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.PositiveOrZero;
 
 import java.util.UUID;
 
@@ -27,13 +28,22 @@ public class Post {
     @NotNull
     private String name;
 
+    @PositiveOrZero
+    @NotNull
     @NumberFormat(pattern = "#,##0.00")
     @Column(name = "MIN_SALARY", nullable = false)
-    @NotNull
-    private Integer minSalary;
+    private Double minSalary;
 
     @OneToOne(fetch = FetchType.LAZY, mappedBy = "post")
     private Employee employee;
+
+    public void setMinSalary(Double minSalary) {
+        this.minSalary = minSalary;
+    }
+
+    public Double getMinSalary() {
+        return minSalary;
+    }
 
     public Employee getEmployee() {
         return employee;
@@ -41,14 +51,6 @@ public class Post {
 
     public void setEmployee(Employee employee) {
         this.employee = employee;
-    }
-
-    public Integer getMinSalary() {
-        return minSalary;
-    }
-
-    public void setMinSalary(Integer minSalary) {
-        this.minSalary = minSalary;
     }
 
     public String getName() {

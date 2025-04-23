@@ -5,7 +5,10 @@
     <data>
         <instance id="productDc"
                   class="com.company.universalautomationsystem.entity.Product">
-            <fetchPlan extends="_base"/>
+            <fetchPlan extends="_base">
+                <property name="warehouse" fetchPlan="_base"/>
+                <property name="order" fetchPlan="_base"/>
+            </fetchPlan>
             <loader id="productDl"/>
         </instance>
     </data>
@@ -22,6 +25,18 @@
             <textArea id="descriptionField" height="9.5em" property="description"/>
             <textField id="priceField" property="price"/>
             <dateTimePicker id="dateOfDeliveryField" property="dateOfDelivery"/>
+            <entityPicker id="warehouseField" property="warehouse">
+                <actions>
+                    <action id="entityLookup" type="entity_lookup"/>
+                    <action id="entityClear" type="entity_clear"/>
+                </actions>
+            </entityPicker>
+            <entityPicker id="orderField" property="order">
+                <actions>
+                    <action id="entityLookup" type="entity_lookup"/>
+                    <action id="entityClear" type="entity_clear"/>
+                </actions>
+            </entityPicker>
         </formLayout>
         <hbox id="detailActions">
             <button id="saveAndCloseBtn" action="saveAction"/>
