@@ -1,0 +1,575 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd"
+        objectQuotingStrategy="QUOTE_ONLY_RESERVED_WORDS">
+    <changeSet id="1" author="universal-automation-system">
+        <createTable tableName="CLIENT">
+            <column name="ID" type="UUID">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_CLIENT"/>
+            </column>
+            <column name="NAME" type="VARCHAR(100)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="EMAIL" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="PHONE" type="VARCHAR(13)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="BANK_REQUISITES" type="VARCHAR(20)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="VERSION" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="CREATED_BY" type="VARCHAR(255)"/>
+            <column name="CREATED_DATE" type="${offsetDateTime.type}"/>
+            <column name="LAST_MODIFIED_BY" type="VARCHAR(255)"/>
+            <column name="LAST_MODIFIED_DATE" type="${offsetDateTime.type}"/>
+            <column name="DELETED_BY" type="VARCHAR(255)"/>
+            <column name="DELETED_DATE" type="${offsetDateTime.type}"/>
+        </createTable>
+    </changeSet>
+    <changeSet id="2" author="universal-automation-system">
+        <createTable tableName="DEPARTMENT">
+            <column name="ID" type="UUID">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_DEPARTMENT"/>
+            </column>
+            <column name="NAME" type="VARCHAR(100)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="ADDRESS" type="VARCHAR(100)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="STUFF_ID" type="UUID"/>
+            <column name="VERSION" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="CREATED_BY" type="VARCHAR(255)"/>
+            <column name="CREATED_DATE" type="${offsetDateTime.type}"/>
+            <column name="LAST_MODIFIED_BY" type="VARCHAR(255)"/>
+            <column name="LAST_MODIFIED_DATE" type="${offsetDateTime.type}"/>
+            <column name="DELETED_BY" type="VARCHAR(255)"/>
+            <column name="DELETED_DATE" type="${offsetDateTime.type}"/>
+        </createTable>
+    </changeSet>
+    <changeSet id="3" author="universal-automation-system">
+        <createTable tableName="EMPLOYEE">
+            <column name="ID" type="UUID">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_EMPLOYEE"/>
+            </column>
+            <column name="NAME" type="VARCHAR(100)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="EMAIL" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="PHONE" type="VARCHAR(13)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="DATE_OF_BIRTH" type="DATE"/>
+            <column name="PASSPORT" type="VARCHAR(10)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="INN" type="VARCHAR(12)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="POST_ID" type="UUID">
+                <constraints nullable="false"/>
+            </column>
+            <column name="SALARY" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="IN_STAFF" type="BOOLEAN">
+                <constraints nullable="false"/>
+            </column>
+            <column name="VERSION" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="CREATED_BY" type="VARCHAR(255)"/>
+            <column name="CREATED_DATE" type="${offsetDateTime.type}"/>
+            <column name="LAST_MODIFIED_BY" type="VARCHAR(255)"/>
+            <column name="LAST_MODIFIED_DATE" type="${offsetDateTime.type}"/>
+            <column name="DELETED_BY" type="VARCHAR(255)"/>
+            <column name="DELETED_DATE" type="${offsetDateTime.type}"/>
+            <column name="STUFF_ID" type="UUID"/>
+        </createTable>
+    </changeSet>
+    <changeSet id="4" author="universal-automation-system">
+        <createTable tableName="EXECUTOR">
+            <column name="ID" type="UUID">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_EXECUTOR"/>
+            </column>
+            <column name="NAME" type="VARCHAR(100)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="EMAIL" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="PHONE" type="VARCHAR(13)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="INN" type="VARCHAR(10)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="MSRN" type="VARCHAR(13)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="LEGAL_ADDRESS" type="VARCHAR(100)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="VERSION" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="CREATED_BY" type="VARCHAR(255)"/>
+            <column name="CREATED_DATE" type="${offsetDateTime.type}"/>
+            <column name="LAST_MODIFIED_BY" type="VARCHAR(255)"/>
+            <column name="LAST_MODIFIED_DATE" type="${offsetDateTime.type}"/>
+            <column name="DELETED_BY" type="VARCHAR(255)"/>
+            <column name="DELETED_DATE" type="${offsetDateTime.type}"/>
+        </createTable>
+    </changeSet>
+    <changeSet id="5" author="universal-automation-system">
+        <createTable tableName="LEGAL_CLIENT">
+            <column name="ID" type="UUID">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_LEGAL_CLIENT"/>
+            </column>
+            <column name="NAME" type="VARCHAR(100)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="EMAIL" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="PHONE" type="VARCHAR(13)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="BANK_REQUISITES" type="VARCHAR(20)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="VERSION" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="CREATED_BY" type="VARCHAR(255)"/>
+            <column name="CREATED_DATE" type="${offsetDateTime.type}"/>
+            <column name="LAST_MODIFIED_BY" type="VARCHAR(255)"/>
+            <column name="LAST_MODIFIED_DATE" type="${offsetDateTime.type}"/>
+            <column name="DELETED_BY" type="VARCHAR(255)"/>
+            <column name="DELETED_DATE" type="${offsetDateTime.type}"/>
+            <column name="INN" type="VARCHAR(10)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="MSRN" type="VARCHAR(13)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="LEGAL_ADDRESS" type="VARCHAR(100)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet id="6" author="universal-automation-system">
+        <createTable tableName="NATURAL_CLIENT">
+            <column name="ID" type="UUID">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_NATURAL_CLIENT"/>
+            </column>
+            <column name="NAME" type="VARCHAR(100)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="EMAIL" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="PHONE" type="VARCHAR(13)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="BANK_REQUISITES" type="VARCHAR(20)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="VERSION" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="CREATED_BY" type="VARCHAR(255)"/>
+            <column name="CREATED_DATE" type="${offsetDateTime.type}"/>
+            <column name="LAST_MODIFIED_BY" type="VARCHAR(255)"/>
+            <column name="LAST_MODIFIED_DATE" type="${offsetDateTime.type}"/>
+            <column name="DELETED_BY" type="VARCHAR(255)"/>
+            <column name="DELETED_DATE" type="${offsetDateTime.type}"/>
+            <column name="DATE_OF_BIRTH" type="DATE"/>
+        </createTable>
+    </changeSet>
+    <changeSet id="7" author="universal-automation-system">
+        <createTable tableName="ORDER_">
+            <column name="ID" type="UUID">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_ORDER_"/>
+            </column>
+            <column name="NAME" type="VARCHAR(100)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="DESCRIPTION" type="CLOB"/>
+            <column name="DATE_CREATE" type="${offsetDateTime.type}">
+                <constraints nullable="false"/>
+            </column>
+            <column name="DATE_START" type="${offsetDateTime.type}">
+                <constraints nullable="false"/>
+            </column>
+            <column name="DATE_END" type="${offsetDateTime.type}">
+                <constraints nullable="false"/>
+            </column>
+            <column name="EMPLOYEE_ID" type="UUID"/>
+            <column name="EXECUTOR_ID" type="UUID"/>
+            <column name="CLIENT_ID" type="UUID"/>
+            <column name="VERSION" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="CREATED_BY" type="VARCHAR(255)"/>
+            <column name="CREATED_DATE" type="${offsetDateTime.type}"/>
+            <column name="LAST_MODIFIED_BY" type="VARCHAR(255)"/>
+            <column name="LAST_MODIFIED_DATE" type="${offsetDateTime.type}"/>
+            <column name="DELETED_BY" type="VARCHAR(255)"/>
+            <column name="DELETED_DATE" type="${offsetDateTime.type}"/>
+        </createTable>
+    </changeSet>
+    <changeSet id="8" author="universal-automation-system">
+        <createTable tableName="POST">
+            <column name="ID" type="UUID">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_POST"/>
+            </column>
+            <column name="VERSION" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="NAME" type="VARCHAR(100)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="MIN_SALARY" type="INT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet id="9" author="universal-automation-system">
+        <createTable tableName="PRODUCT">
+            <column name="ID" type="UUID">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_PRODUCT"/>
+            </column>
+            <column name="NAME" type="VARCHAR(100)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="DESCRIPTION" type="CLOB"/>
+            <column name="PRICE" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="DATE_OF_DELIVERY" type="${offsetDateTime.type}">
+                <constraints nullable="false"/>
+            </column>
+            <column name="WAREHOUSE_ID" type="UUID"/>
+            <column name="ORDER_ID" type="UUID"/>
+            <column name="VERSION" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="CREATED_BY" type="VARCHAR(255)"/>
+            <column name="CREATED_DATE" type="${offsetDateTime.type}"/>
+            <column name="LAST_MODIFIED_BY" type="VARCHAR(255)"/>
+            <column name="LAST_MODIFIED_DATE" type="${offsetDateTime.type}"/>
+            <column name="DELETED_BY" type="VARCHAR(255)"/>
+            <column name="DELETED_DATE" type="${offsetDateTime.type}"/>
+        </createTable>
+    </changeSet>
+    <changeSet id="10" author="universal-automation-system">
+        <createTable tableName="STUFF">
+            <column name="ID" type="UUID">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_STUFF"/>
+            </column>
+            <column name="NAME" type="VARCHAR(100)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="VERSION" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="CREATED_BY" type="VARCHAR(255)"/>
+            <column name="CREATED_DATE" type="${offsetDateTime.type}"/>
+            <column name="LAST_MODIFIED_BY" type="VARCHAR(255)"/>
+            <column name="LAST_MODIFIED_DATE" type="${offsetDateTime.type}"/>
+            <column name="DELETED_BY" type="VARCHAR(255)"/>
+            <column name="DELETED_DATE" type="${offsetDateTime.type}"/>
+        </createTable>
+    </changeSet>
+    <changeSet id="11" author="universal-automation-system">
+        <createTable tableName="WAREHOUSE">
+            <column name="ID" type="UUID">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_WAREHOUSE"/>
+            </column>
+            <column name="NAME" type="VARCHAR(100)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="ADDRESS" type="VARCHAR(100)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="VERSION" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="CREATED_BY" type="VARCHAR(255)"/>
+            <column name="CREATED_DATE" type="${offsetDateTime.type}"/>
+            <column name="LAST_MODIFIED_BY" type="VARCHAR(255)"/>
+            <column name="LAST_MODIFIED_DATE" type="${offsetDateTime.type}"/>
+            <column name="DELETED_BY" type="VARCHAR(255)"/>
+            <column name="DELETED_DATE" type="${offsetDateTime.type}"/>
+            <column name="DEPARTMENT_ID" type="UUID"/>
+        </createTable>
+    </changeSet>
+    <changeSet id="12" author="universal-automation-system">
+        <createIndex indexName="IDX_CLIENT_UNQ_BANC_RECUISITES" tableName="CLIENT">
+            <column name="BANK_REQUISITES"/>
+        </createIndex>
+    </changeSet>
+    <changeSet id="13" author="universal-automation-system" dbms="postgresql">
+        <createIndex indexName="IDX_CLIENT_UNQ_EMAIL" tableName="CLIENT" unique="true">
+            <column name="EMAIL"/>
+        </createIndex>
+
+        <modifySql>
+            <append value="where DELETED_DATE is null"/>
+        </modifySql>
+    </changeSet>
+    <changeSet id="14" author="universal-automation-system" dbms="postgresql">
+        <createIndex indexName="IDX_CLIENT_UNQ_NAME" tableName="CLIENT" unique="true">
+            <column name="NAME"/>
+        </createIndex>
+
+        <modifySql>
+            <append value="where DELETED_DATE is null"/>
+        </modifySql>
+    </changeSet>
+    <changeSet id="15" author="universal-automation-system" dbms="postgresql">
+        <createIndex indexName="IDX_CLIENT_UNQ_PHONE" tableName="CLIENT" unique="true">
+            <column name="PHONE"/>
+        </createIndex>
+
+        <modifySql>
+            <append value="where DELETED_DATE is null"/>
+        </modifySql>
+    </changeSet>
+    <changeSet id="16" author="universal-automation-system">
+        <createIndex indexName="IDX_DEPARTMENT_STUFF" tableName="DEPARTMENT">
+            <column name="STUFF_ID"/>
+        </createIndex>
+
+        <addForeignKeyConstraint baseColumnNames="STUFF_ID" baseTableName="DEPARTMENT"
+                                 constraintName="FK_DEPARTMENT_ON_STUFF" referencedColumnNames="ID"
+                                 referencedTableName="STUFF"/>
+    </changeSet>
+    <changeSet id="17" author="universal-automation-system" dbms="postgresql">
+        <createIndex indexName="IDX_DEPARTMENT_UNQ_NAME" tableName="DEPARTMENT" unique="true">
+            <column name="NAME"/>
+        </createIndex>
+
+        <modifySql>
+            <append value="where DELETED_DATE is null"/>
+        </modifySql>
+    </changeSet>
+    <changeSet id="18" author="universal-automation-system">
+        <createIndex indexName="IDX_EMPLOYEE_POST" tableName="EMPLOYEE">
+            <column name="POST_ID"/>
+        </createIndex>
+
+        <addForeignKeyConstraint baseColumnNames="POST_ID" baseTableName="EMPLOYEE" constraintName="FK_EMPLOYEE_ON_POST"
+                                 onDelete="SET NULL" referencedColumnNames="ID" referencedTableName="POST"/>
+    </changeSet>
+    <changeSet id="19" author="universal-automation-system">
+        <createIndex indexName="IDX_EMPLOYEE_STUFF" tableName="EMPLOYEE">
+            <column name="STUFF_ID"/>
+        </createIndex>
+
+        <addForeignKeyConstraint baseColumnNames="STUFF_ID" baseTableName="EMPLOYEE"
+                                 constraintName="FK_EMPLOYEE_ON_STUFF" referencedColumnNames="ID"
+                                 referencedTableName="STUFF"/>
+    </changeSet>
+    <changeSet id="20" author="universal-automation-system" dbms="postgresql">
+        <createIndex indexName="IDX_EMPLOYEE_UNQ_EMAIL" tableName="EMPLOYEE" unique="true">
+            <column name="EMAIL"/>
+        </createIndex>
+
+        <modifySql>
+            <append value="where DELETED_DATE is null"/>
+        </modifySql>
+    </changeSet>
+    <changeSet id="21" author="universal-automation-system" dbms="postgresql">
+        <createIndex indexName="IDX_EMPLOYEE_UNQ_INN" tableName="EMPLOYEE" unique="true">
+            <column name="INN"/>
+        </createIndex>
+
+        <modifySql>
+            <append value="where DELETED_DATE is null"/>
+        </modifySql>
+    </changeSet>
+    <changeSet id="22" author="universal-automation-system" dbms="postgresql">
+        <createIndex indexName="IDX_EMPLOYEE_UNQ_NAME" tableName="EMPLOYEE" unique="true">
+            <column name="NAME"/>
+        </createIndex>
+
+        <modifySql>
+            <append value="where DELETED_DATE is null"/>
+        </modifySql>
+    </changeSet>
+    <changeSet id="23" author="universal-automation-system" dbms="postgresql">
+        <createIndex indexName="IDX_EMPLOYEE_UNQ_PASSPORT" tableName="EMPLOYEE" unique="true">
+            <column name="PASSPORT"/>
+        </createIndex>
+
+        <modifySql>
+            <append value="where DELETED_DATE is null"/>
+        </modifySql>
+    </changeSet>
+    <changeSet id="24" author="universal-automation-system" dbms="postgresql">
+        <createIndex indexName="IDX_EMPLOYEE_UNQ_PHONE" tableName="EMPLOYEE" unique="true">
+            <column name="PHONE"/>
+        </createIndex>
+
+        <modifySql>
+            <append value="where DELETED_DATE is null"/>
+        </modifySql>
+    </changeSet>
+    <changeSet id="25" author="universal-automation-system" dbms="postgresql">
+        <createIndex indexName="IDX_EXECUTOR_UNQ_EMAIL" tableName="EXECUTOR" unique="true">
+            <column name="EMAIL"/>
+        </createIndex>
+
+        <modifySql>
+            <append value="where DELETED_DATE is null"/>
+        </modifySql>
+    </changeSet>
+    <changeSet id="26" author="universal-automation-system" dbms="postgresql">
+        <createIndex indexName="IDX_EXECUTOR_UNQ_INN" tableName="EXECUTOR" unique="true">
+            <column name="INN"/>
+        </createIndex>
+
+        <modifySql>
+            <append value="where DELETED_DATE is null"/>
+        </modifySql>
+    </changeSet>
+    <changeSet id="27" author="universal-automation-system">
+        <createIndex indexName="IDX_EXECUTOR_UNQ_MSRN" tableName="EXECUTOR">
+            <column name="MSRN"/>
+        </createIndex>
+    </changeSet>
+    <changeSet id="28" author="universal-automation-system" dbms="postgresql">
+        <createIndex indexName="IDX_EXECUTOR_UNQ_NAME" tableName="EXECUTOR" unique="true">
+            <column name="NAME"/>
+        </createIndex>
+
+        <modifySql>
+            <append value="where DELETED_DATE is null"/>
+        </modifySql>
+    </changeSet>
+    <changeSet id="29" author="universal-automation-system" dbms="postgresql">
+        <createIndex indexName="IDX_EXECUTOR_UNQ_PHONE" tableName="EXECUTOR" unique="true">
+            <column name="PHONE"/>
+        </createIndex>
+
+        <modifySql>
+            <append value="where DELETED_DATE is null"/>
+        </modifySql>
+    </changeSet>
+    <changeSet id="30" author="universal-automation-system" dbms="postgresql">
+        <createIndex indexName="IDX_LEGAL_CLIENT_UNQ" tableName="LEGAL_CLIENT" unique="true">
+            <column name="MSRN"/>
+        </createIndex>
+
+        <modifySql>
+            <append value="where DELETED_DATE is null"/>
+        </modifySql>
+    </changeSet>
+    <changeSet id="31" author="universal-automation-system" dbms="postgresql">
+        <createIndex indexName="IDX_LEGAL_CLIENT_UNQ_INN" tableName="LEGAL_CLIENT" unique="true">
+            <column name="INN"/>
+        </createIndex>
+
+        <modifySql>
+            <append value="where DELETED_DATE is null"/>
+        </modifySql>
+    </changeSet>
+    <changeSet id="32" author="universal-automation-system" dbms="postgresql">
+        <createIndex indexName="IDX_ORDER_UNQ_NAME" tableName="ORDER_" unique="true">
+            <column name="NAME"/>
+        </createIndex>
+
+        <modifySql>
+            <append value="where DELETED_DATE is null"/>
+        </modifySql>
+    </changeSet>
+    <changeSet id="33" author="universal-automation-system">
+        <createIndex indexName="IDX_ORDER__CLIENT" tableName="ORDER_">
+            <column name="CLIENT_ID"/>
+        </createIndex>
+    </changeSet>
+    <changeSet id="34" author="universal-automation-system">
+        <createIndex indexName="IDX_ORDER__EMPLOYEE" tableName="ORDER_">
+            <column name="EMPLOYEE_ID"/>
+        </createIndex>
+
+        <addForeignKeyConstraint baseColumnNames="EMPLOYEE_ID" baseTableName="ORDER_"
+                                 constraintName="FK_ORDER__ON_EMPLOYEE" referencedColumnNames="ID"
+                                 referencedTableName="EMPLOYEE"/>
+    </changeSet>
+    <changeSet id="35" author="universal-automation-system">
+        <createIndex indexName="IDX_ORDER__EXECUTOR" tableName="ORDER_">
+            <column name="EXECUTOR_ID"/>
+        </createIndex>
+
+        <addForeignKeyConstraint baseColumnNames="EXECUTOR_ID" baseTableName="ORDER_"
+                                 constraintName="FK_ORDER__ON_EXECUTOR" referencedColumnNames="ID"
+                                 referencedTableName="EXECUTOR"/>
+    </changeSet>
+    <changeSet id="36" author="universal-automation-system">
+        <createIndex indexName="IDX_PRODUCT_ORDER" tableName="PRODUCT">
+            <column name="ORDER_ID"/>
+        </createIndex>
+
+        <addForeignKeyConstraint baseColumnNames="ORDER_ID" baseTableName="PRODUCT" constraintName="FK_PRODUCT_ON_ORDER"
+                                 referencedColumnNames="ID" referencedTableName="ORDER_"/>
+    </changeSet>
+    <changeSet id="37" author="universal-automation-system" dbms="postgresql">
+        <createIndex indexName="IDX_PRODUCT_UNQ_NAME" tableName="PRODUCT" unique="true">
+            <column name="NAME"/>
+        </createIndex>
+
+        <modifySql>
+            <append value="where DELETED_DATE is null"/>
+        </modifySql>
+    </changeSet>
+    <changeSet id="38" author="universal-automation-system">
+        <createIndex indexName="IDX_PRODUCT_WAREHOUSE" tableName="PRODUCT">
+            <column name="WAREHOUSE_ID"/>
+        </createIndex>
+
+        <addForeignKeyConstraint baseColumnNames="WAREHOUSE_ID" baseTableName="PRODUCT"
+                                 constraintName="FK_PRODUCT_ON_WAREHOUSE" referencedColumnNames="ID"
+                                 referencedTableName="WAREHOUSE"/>
+    </changeSet>
+    <changeSet id="39" author="universal-automation-system" dbms="postgresql">
+        <createIndex indexName="IDX_STUFF_UNQ_NAME" tableName="STUFF" unique="true">
+            <column name="NAME"/>
+        </createIndex>
+
+        <modifySql>
+            <append value="where DELETED_DATE is null"/>
+        </modifySql>
+    </changeSet>
+    <changeSet id="40" author="universal-automation-system">
+        <createIndex indexName="IDX_WAREHOUSE_DEPARTMENT" tableName="WAREHOUSE">
+            <column name="DEPARTMENT_ID"/>
+        </createIndex>
+
+        <addForeignKeyConstraint baseColumnNames="DEPARTMENT_ID" baseTableName="WAREHOUSE"
+                                 constraintName="FK_WAREHOUSE_ON_DEPARTMENT" referencedColumnNames="ID"
+                                 referencedTableName="DEPARTMENT"/>
+    </changeSet>
+    <changeSet id="41" author="universal-automation-system" dbms="postgresql">
+        <createIndex indexName="IDX_WAREHOUSE_UNQ_NAME" tableName="WAREHOUSE" unique="true">
+            <column name="NAME"/>
+        </createIndex>
+
+        <modifySql>
+            <append value="where DELETED_DATE is null"/>
+        </modifySql>
+    </changeSet>
+</databaseChangeLog>

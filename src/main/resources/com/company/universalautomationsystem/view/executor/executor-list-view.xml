@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<view xmlns="http://jmix.io/schema/flowui/view"
+      xmlns:c="http://jmix.io/schema/flowui/jpql-condition"
+      title="msg://executorListView.title"
+      focusComponent="executorsDataGrid">
+    <data>
+        <collection id="executorsDc"
+                    class="com.company.universalautomationsystem.entity.Executor">
+            <fetchPlan extends="_base"/>
+            <loader id="executorsDl" readOnly="true">
+                <query>
+                    <![CDATA[select e from Executor e]]>
+                </query>
+            </loader>
+        </collection>
+    </data>
+    <facets>
+        <dataLoadCoordinator auto="true"/>
+        <urlQueryParameters>
+            <genericFilter component="genericFilter"/>
+            <pagination component="pagination"/>
+        </urlQueryParameters>
+    </facets>
+    <actions>
+        <action id="selectAction" type="lookup_select"/>
+        <action id="discardAction" type="lookup_discard"/>
+    </actions>
+    <layout>
+        <genericFilter id="genericFilter"
+                       dataLoader="executorsDl">
+            <properties include=".*"/>
+        </genericFilter>
+        <hbox id="buttonsPanel" classNames="buttons-panel">
+            <button id="createBtn" action="executorsDataGrid.create"/>
+            <button id="editBtn" action="executorsDataGrid.edit"/>
+            <button id="removeBtn" action="executorsDataGrid.remove"/>
+            <simplePagination id="pagination" dataLoader="executorsDl"/>
+        </hbox>
+        <dataGrid id="executorsDataGrid"
+                  width="100%"
+                  minHeight="20em"
+                  dataContainer="executorsDc"
+                  columnReorderingAllowed="true">
+            <actions>
+                <action id="create" type="list_create"/>
+                <action id="edit" type="list_edit"/>
+                <action id="remove" type="list_remove"/>
+            </actions>
+            <columns resizable="true">
+                <column property="name"/>
+                <column property="email"/>
+                <column property="phone"/>
+                <column property="inn"/>
+                <column property="msrn"/>
+                <column property="legalAddress"/>
+            </columns>
+        </dataGrid>
+        <hbox id="lookupActions" visible="false">
+            <button id="selectBtn" action="selectAction"/>
+            <button id="discardBtn" action="discardAction"/>
+        </hbox>
+    </layout>
+</view>
